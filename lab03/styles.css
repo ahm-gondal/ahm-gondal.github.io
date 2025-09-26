@@ -1,0 +1,47 @@
+html{
+    background-color:black
+}
+h1{
+    font-family:10em;
+    color:azure
+}
+p{
+    font-family:7em;
+    color:aquamarine
+}
+h2{
+    font-family:6em;
+    color:azure
+}
+h3{
+    font-family:6em;
+    color:azure
+}
+li{
+    font-family:5em;
+    color:aquamarine
+}
+h1:hover{
+    background-color:lightskyblue;
+}
+.name::first-letter{
+    font-size: 5em;
+
+}
+h2{
+    background-color:lightcoral;
+}
+a[href="https://www.bbc.com"]:hover
+{
+background-color:lightseagreen;
+font-size: 2em;
+}
+a[href="mailto:ahmedgondal7@gmail.com"]:hover
+{
+    background-color:lightcoral;
+font-size: 2em;
+}
+hr{
+    height: 12px;
+    background-color:blueviolet;
+}
