@@ -1,0 +1,123 @@
+html {
+    background-color: black;
+}
+h1 {
+    font-family: 10em;
+    color: azure;
+}
+p {
+    font-family: 7em;
+    color: aquamarine;
+}
+h2 {
+    font-family: 6em;
+    color: azure;
+}
+h3 {
+    font-family: 6em;
+    color: azure;
+}
+li {
+    font-family: 5em;
+    color: aquamarine;
+}
+h1:hover {
+    background-color: lightskyblue;
+}
+.name::first-letter {
+    font-size: 5em;
+}
+h2 {
+    background-color: lightcoral;
+}
+a[href="https://www.bbc.com"]:hover {
+    background-color: lightseagreen;
+    font-size: 2em;
+}
+a[href="mailto:ahmedgondal7@gmail.com"]:hover {
+    background-color: lightcoral;
+    font-size: 2em;
+}
+hr {
+    height: 12px;
+    background-color: blueviolet;
+}
+main {
+    background-color: #111;
+    color: white;
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid aquamarine;
+    border-radius: 10px;
+}
+header {
+    background-color: darkslateblue;
+    padding: 15px;
+    text-align: center;
+    border-bottom: 3px solid lightcoral;
+}
+nav {
+    background-color: #222;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+nav ul {
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+}
+nav li {
+    display: inline-block;
+    margin: 0 15px;
+}
+nav a {
+    text-decoration: none;
+    color: aquamarine;
+    font-size: 1.5em;
+}
+nav a:hover {
+    color: lightcoral;
+}
+section {
+    background-color: #333;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 5px solid lightseagreen;
+}
+h1, h2, h3 {
+    margin-bottom: 10px;
+    padding: 5px;
+}
+p {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid lightseagreen;
+    border-radius: 6px;
+    padding: 10px;
+    margin: 10px 0;
+}
+footer {
+    text-align: center;
+    background-color: darkslategray;
+    color: white;
+    padding: 10px;
+    margin-top: 30px;
+    border-top: 3px solid lightcoral;
+}
+button:hover, a:focus {
+    background-color: aquamarine;
+    color: black;
+    transition: 0.3s ease;
+}
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+    p {
+        font-size: 1.2em;
+    }
+    nav li {
+        display: block;
+        margin: 10px 0;
+    }
+}
