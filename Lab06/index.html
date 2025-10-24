@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Simple Webpage</title>
+</head>
+<body>
+
+    <!-- Sticky Navbar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Fixed Sidebar Advertisement -->
+    <aside class="sidebar">
+        <h3>Advertisement</h3>
+        <p>Your Ad Here!</p>
+    </aside>
+
+    <header>
+        <h1>Who I am</h1>
+        <div class="intro"> 
+            <img src="mypic.jpeg" class="float-img" alt="person">
+            <p class="name">Ahmed Hassaan.</p>
+        </div>
+        
+    </header>
+
+    <main>
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Myself</h2>
+           
+            <p>I am Ahmed Hassaan, a student of computer science at QAU Islamabad.</p>
+        </section>
+
+        <section>
+            <h2>What I love doing</h2>
+            <p>I have a great interest in technology and the developments in this field, including web development and AI.</p>
+        </section>
+
+        <!-- Flexbox Cards Section -->
+        <section id="skills">
+            <h2>My Skills & Projects</h2>
+            <div class="card-container">
+                <!-- Card 1 -->
+                <div class="card">
+                    <img src="skill.jpg" alt="Skill Image">
+                    <h3>Coding Skills</h3>
+                    <ul>
+                        <li>Coding</li>
+                        <li>Problem Solving</li>
+                        <li>Team Coordination</li>
+                    </ul>
+                </div>
+                <!-- Card 2 -->
+                <div class="card">
+                    <img src="Project.jpg" alt="Project Image">
+                    <h3>Projects</h3>
+                    <p>✔ Calculator <br>✔ Tic Tac Toe Game <br>✔ Personal Webpage</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="card">
+                    <img src="Course.jpeg" alt="Course Image">
+                    <h3>Courses</h3>
+                    <ul>
+                        <li>Web Development Basics</li>
+                        <li>Java & OOP</li>
+                        <li>Introduction to AI</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2>Educational Background</h2>
+            <table border="1">
+                <thead>
+                    <tr><th colspan="3">My Academic Qualifications</th></tr>
+                    <tr>
+                        <th>Qualification</th>
+                        <th>Institute</th>
+                        <th>Grade / Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">Higher Education</td>
+                        <td>BS in Computer Science (Quaid-e-Azam University, Islamabad)</td>
+                        <td>Currently Enrolled</td>
+                    </tr>
+                    <tr>
+                        <td>F.Sc Pre-Engineering (Cadet College Kallar Kahar)</td>
+                        <td>87%</td>
+                    </tr>
+                    <tr>
+                        <td>Matriculation</td>
+                        <td>Zia Public School</td>
+                        <td>86%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>You can contact me by email: <a href="mailto:ahmedhassaangondal@gmail.com">ahmedhassaangondal@gmail.com</a></p>
+            <p>Visit news: <a href="https://www.bbc.com" target="_blank">BBC</a></p>
+        </section>
+
+        <!-- Form Section -->
+        <section>
+            <h2>Form</h2>
+            <p><a class="form-link" href="form.html">Go to Form Page</a></p>
+        </section>
+
+    </main>
+
+</body>
+</html>
