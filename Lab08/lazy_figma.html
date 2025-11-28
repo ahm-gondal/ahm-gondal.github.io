@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hamza Save Mart - Figma Screens (Lazy Loaded)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 40px auto;
+    }
+    .lazy {
+      filter: blur(5px);
+      background-color: #eee;
+      min-height: 200px;   
+    }
+    .spacer {
+      height: 120vh;       
+    }
+  </style>
+</head>
+<body>
+  <h1>Hamza Save Mart – Figma Screens (Lazy Loaded)</h1>
+
+  <img src="Images/screen1.png" alt="Screen 1">
+
+  <div class="spacer"></div>
+
+  <img class="lazy"
+       src=""
+       data-src="Images/screen2.png"
+       alt="Screen 2">
+
+  <div class="spacer"></div>
+
+  <img class="lazy"
+       src=""
+       data-src="Images/screen3.png"
+       alt="Screen 3">
+
+  <div class="spacer"></div>
+
+  <img class="lazy"
+       src=""
+       data-src="Images/screen4.png"
+       alt="Screen 4">
+
+  <script>
+   
+    const lazyImages = document.querySelectorAll('img.lazy');
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            img.classList.remove('lazy');
+            obs.unobserve(img);
+          }
+        });
+      });
+      lazyImages.forEach(img => observer.observe(img));
+    } else {
+      lazyImages.forEach(img => {
+        img.src = img.dataset.src;
+        img.classList.remove('lazy');
+      });
+    }
+  </script>
+</body>
+</html>

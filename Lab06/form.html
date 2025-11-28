@@ -14,30 +14,113 @@
     <main>
         <section>
             <h2>Enter Your Information</h2>
-            <form action="#" method="get">
+
+            <!-- Added id and novalidate so we can handle validation ourselves -->
+            <form id="contactForm" action="#" method="get" novalidate>
                 <label for="name">Full Name:</label><br>
-                <input type="text" id="name" name="name" required><br><br>
-           <label for="email">Email:</label><br>
-     <input type="email" id="email" name="email" required><br><br>
-           <label for="phone">Phone Number:</label><br>
-                <input type="tel" id="phone" name="phone" placeholder="03XX-XXXXXXX" required><br><br>
+                <input type="text" id="name" name="name"><br><br>
+
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email"><br><br>
+
+                <label for="phone">Phone Number:</label><br>
+                <input type="tel" id="phone" name="phone" placeholder="03XX-XXXXXXX"><br><br>
+
                 <p>Are you a student?</p>
                 <label><input type="radio" name="student" value="yes" checked> Yes</label><br>
                 <label><input type="radio" name="student" value="no"> No</label><br><br>
+
                 <p>Select Your Interests:</p>
                 <label><input type="checkbox" name="interest" value="coding"> Coding</label><br>
                 <label><input type="checkbox" name="interest" value="webdev"> Web Development</label><br>
                 <label><input type="checkbox" name="interest" value="ai"> Artificial Intelligence</label><br><br>
+
                 <label for="message">Your Message:</label><br>
                 <textarea id="message" name="message" rows="4" cols="40" placeholder="Write your message here..."></textarea><br><br>
-     <input type="submit" value="Submit">
+
+                <input type="submit" value="Submit">
                 <input type="reset" value="Reset">
             </form>
         </section>
-       <section>
+
+        <section>
             <h2>Navigation</h2>
             <p><a class="form-link" href="index.html">Back to Portfolio</a></p>
         </section>
     </main>
+
+    <!-- Validation script -->
+    <script>
+        const form = document.getElementById('contactForm');
+
+        form.addEventListener('submit', function (event) {
+            let isValid = true;
+
+            // Helper for single input/textarea
+            function checkField(field, condition) {
+                if (!condition) {
+                    field.style.backgroundColor = 'red';
+                    isValid = false;
+                } else {
+                    field.style.backgroundColor = '';
+                }
+            }
+
+            // --- Get elements ---
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const phoneInput = document.getElementById('phone');
+            const messageInput = document.getElementById('message');
+            const studentRadios = document.querySelectorAll('input[name="student"]');
+            const interestCheckboxes = document.querySelectorAll('input[name="interest"]');
+
+            // --- 1) Name: at least 3 characters, not empty ---
+            checkField(nameInput, nameInput.value.trim().length >= 3);
+
+            // --- 2) Email: basic pattern ---
+            const emailValue = emailInput.value.trim();
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            checkField(emailInput, emailPattern.test(emailValue));
+
+            // --- 3) Phone: format 03XX-XXXXXXX ---
+            const phoneValue = phoneInput.value.trim();
+            const phonePattern = /^03\d{2}-\d{7}$/;   // 03 + 2 digits + '-' + 7 digits
+            checkField(phoneInput, phonePattern.test(phoneValue));
+
+            // --- 4) Student radio: one must be selected ---
+            let isStudentSelected = false;
+            studentRadios.forEach(radio => {
+                if (radio.checked) isStudentSelected = true;
+            });
+
+            // Highlight radio labels background instead (more visible)
+            studentRadios.forEach(radio => {
+                const label = radio.parentElement;
+                label.style.backgroundColor = isStudentSelected ? '' : 'red';
+            });
+            if (!isStudentSelected) isValid = false;
+
+            // --- 5) At least one interest checkbox selected ---
+            let isInterestSelected = false;
+            interestCheckboxes.forEach(box => {
+                if (box.checked) isInterestSelected = true;
+            });
+
+            interestCheckboxes.forEach(box => {
+                const label = box.parentElement;
+                label.style.backgroundColor = isInterestSelected ? '' : 'red';
+            });
+            if (!isInterestSelected) isValid = false;
+
+            // --- 6) Message: not empty ---
+            checkField(messageInput, messageInput.value.trim().length > 0);
+
+            // If anything invalid, block form submission
+            if (!isValid) {
+                event.preventDefault();
+                alert('Please correct all fields highlighted in red.');
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Contact & Bio Data Form</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Enter Your Information</h2>
+
+            <form id="contactForm" action="#" method="get" novalidate>
+                <label for="name">Full Name:</label><br>
+                <input type="text" id="name" name="name"><br><br>
+
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email"><br><br>
+
+                <label for="phone">Phone Number:</label><br>
+                <input type="tel" id="phone" name="phone" placeholder="03XX-XXXXXXX or 03XXXXXXXXX"><br><br>
+
+                <div id="studentGroup">
+                    <p>Are you a student?</p>
+                    <label><input type="radio" name="student" value="yes" checked> Yes</label><br>
+                    <label><input type="radio" name="student" value="no"> No</label><br><br>
+                </div>
+
+                <div id="interestGroup">
+                    <p>Select Your Interests:</p>
+                    <label><input type="checkbox" name="interest" value="coding"> Coding</label><br>
+                    <label><input type="checkbox" name="interest" value="webdev"> Web Development</label><br>
+                    <label><input type="checkbox" name="interest" value="ai"> Artificial Intelligence</label><br><br>
+                </div>
+
+                <label for="message">Your Message:</label><br>
+                <textarea id="message" name="message" rows="4" cols="40" placeholder="Write your message here..."></textarea><br><br>
+
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </form>
+        </section>
+    </main>
+
+    <script>
+        const form = document.getElementById('contactForm');
+
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+        const messageInput = document.getElementById('message');
+
+        const studentRadios = document.querySelectorAll('input[name="student"]');
+        const studentGroup = document.getElementById('studentGroup');
+
+        const interestCheckboxes = document.querySelectorAll('input[name="interest"]');
+        const interestGroup = document.getElementById('interestGroup');
+
+        form.addEventListener('submit', function (event) {
+            let isValid = true;
+
+            function checkField(field, condition) {
+                if (!condition) {
+                    field.style.backgroundColor = 'red';
+                    isValid = false;
+                } else {
+                    field.style.backgroundColor = '';
+                }
+            }
+
+            checkField(nameInput, nameInput.value.trim().length >= 3);
+
+            const emailValue = emailInput.value.trim();
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            checkField(emailInput, emailPattern.test(emailValue));
+
+            const phoneValue = phoneInput.value.trim();
+            const phonePattern = /^(03\d{2}-\d{7}|03\d{9})$/;
+            checkField(phoneInput, phonePattern.test(phoneValue));
+
+            const isStudentSelected = Array.from(studentRadios).some(r => r.checked);
+            studentGroup.style.backgroundColor = isStudentSelected ? '' : 'red';
+            if (!isStudentSelected) isValid = false;
+
+            const isInterestSelected = Array.from(interestCheckboxes).some(c => c.checked);
+            interestGroup.style.backgroundColor = isInterestSelected ? '' : 'red';
+            if (!isInterestSelected) isValid = false;
+
+            checkField(messageInput, messageInput.value.trim().length > 0);
+
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+
+        form.addEventListener('reset', function () {
+            setTimeout(() => {
+                nameInput.style.backgroundColor = '';
+                emailInput.style.backgroundColor = '';
+                phoneInput.style.backgroundColor = '';
+                messageInput.style.backgroundColor = '';
+                studentGroup.style.backgroundColor = '';
+                interestGroup.style.backgroundColor = '';
+            }, 0);
+        });
+    </script>
+</body>
+</html>

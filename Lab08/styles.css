@@ -1,0 +1,115 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f6f9;
+  color: #333;
+}
+
+header {
+  background: #2c7a7b;           
+  padding: 20px 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  margin-bottom: 24px;
+}
+
+header h1 {
+  color: #fff;
+  text-align: center;
+  font-size: 1.8rem;
+}
+main {
+  display: flex;
+  justify-content: center;
+  padding: 0 16px 40px;
+}
+main section {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  padding: 20px 24px 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+main section h2 {
+  text-align: center;
+  color: #2c7a7b;
+  margin-bottom: 16px;
+}
+label,
+#studentGroup p,
+#interestGroup p {
+  display: block;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 4px;
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.95rem;
+  background-color: #ffffff;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: #2c7a7b;
+  box-shadow: 0 0 0 2px rgba(44, 122, 123, 0.25);
+}
+#studentGroup,
+#interestGroup {
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: #f9fafb;  
+}
+
+#studentGroup label,
+#interestGroup label {
+  font-weight: 400;
+  margin-top: 4px;
+}
+input[type="submit"],
+input[type="reset"] {
+  margin-top: 16px;
+  margin-right: 8px;
+  padding: 8px 18px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+input[type="submit"] {
+  background: #2c7a7b;
+  color: #ffffff;
+}
+
+input[type="submit"]:hover {
+  background: #285e61;
+}
+
+input[type="reset"] {
+  background: #e2e8f0;
+  color: #1f2933;
+}
+
+input[type="reset"]:hover {
+  background: #cbd5e1;
+}
